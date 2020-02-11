@@ -1,5 +1,7 @@
 package main.factory;
 
+import java.util.HashSet;
+
 /**
  *
  * @author qa
@@ -11,26 +13,27 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        System.out.println("Pocetak");
+        Car fiat = new Car("Fiat Punto", 2010, "Black", 45);
         
-        String message = "Ovo je poruka";
+//        fiat.setModel("Fiat Punto");
+//        fiat.setBuildYear (2010);
+//        fiat.setColor ("black");
+//        fiat.setConsumption (6);
+//        fiat.setCurrentFuel (20);
+//        fiat.setMaxFuel (45);
         
-        Car fiat = new Car();
-        fiat.model = "Fiat Punto";
-        fiat.buildYear = 2010;
-        fiat.color = "black";
-        fiat.consumption = 6;
-        fiat.maxSpeed = 180;
-        fiat.currentFuel = 20;
-        fiat.maxFuel = 45;
-        
-        System.out.println("Model: " + fiat.model);
-        System.out.println("Model: " + fiat.model);
-        System.out.println("Model: " + fiat.model);
-        System.out.println("Model: " + fiat.model);
-        System.out.println("Model: " + fiat.model);
+        fiat.showData();
         
         
+        
+        
+        Car ford = new Car("Ford", 2015, "Red", 40, 10, 15);
+        ford.showData();
+        
+        
+        
+        Car volkswagen = new Car("Volkswagen Passat", 2014, "Grey", 85, 6, 20);
+        volkswagen.showData();
         
         
     }
