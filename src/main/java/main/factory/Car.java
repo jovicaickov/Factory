@@ -15,6 +15,10 @@ public class Car {
     private int maxFuel;
     private int currentFuel;
     private int consumption;
+    private int currentMileage;
+    private int distanceMileage;
+    private int distanceTraveled;
+    
     
     
     public Car () {
@@ -24,6 +28,7 @@ public class Car {
         this.maxFuel = 0;
         this.currentFuel = 0;
         this.consumption = 0;
+        this.currentMileage = 0;
     }
     
     public Car (String customModel, int customBuildYear, String customColor, int customMaxFuel) {
@@ -33,13 +38,15 @@ public class Car {
         this.maxFuel = customMaxFuel;
     }
     
-    public Car (String customModel, int customBuildYear, String customColor, int customMaxFuel, int customConsumption, int customCurrentFuel) {
+    public Car (String customModel, int customBuildYear, String customColor, int customMaxFuel, int customConsumption, int customCurrentFuel, int customCurrentMileage, int customDistanceMileage) {
         this.model = customModel;
         this.buildYear = customBuildYear;
         this.color = customColor;
         this.maxFuel = customMaxFuel;
         this.consumption = customConsumption;
         this.currentFuel = customCurrentFuel;
+        this.currentMileage = customCurrentMileage;
+        this.distanceMileage = customDistanceMileage;
     }
     
     
@@ -95,6 +102,22 @@ public class Car {
         return this.vehicleType;
     }
     
+    public int getCurrentMileage () {
+        return this.currentMileage;
+    }
+    
+    public void setCurrentMileage (int customCurrentMileage) {
+        this.currentMileage = customCurrentMileage;
+    }
+    
+    public int getDistanceMileage () {
+        return this.distanceMileage;
+    }
+    
+    public void setDistanceMileage (int customDistanceMileage) {
+        this.distanceMileage = customDistanceMileage;
+    }
+    
     
     public void showData () {
         System.out.println("Model: " + this.getModel());
@@ -103,14 +126,15 @@ public class Car {
         System.out.println("Potrosnja: " + this.getConsumption());
         System.out.println("Stanje rezervoara: " + this.getCurrentFuel());
         System.out.println("Kapacitet rezervoara: " + this.getMaxFuel());
+        System.out.println("Pocetna kilometraza: " + this.getCurrentMileage());
+        System.out.println("Predjena kilometraza: " + this.getDistanceMileage());
+        System.out.println("Zavrsna kilometraza: " + this.distanceTraveled);
         System.out.println();
     }
         
     public void travel(int distanceTraveled) {
-
-//        1. definisati novi atribut 'mileage'
-//        2. napraviti get i set metode
-//        3. prosiriti jedan od konstruktora da moze da se setuje i mileage
+            
+        
 //        4. kolicina goriva da se smanji za kolicinu potrosenog
 //        5. kilometraza da se uveca
 

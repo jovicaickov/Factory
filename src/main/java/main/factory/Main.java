@@ -27,14 +27,16 @@ public class Main {
         
         
         
-        Car ford = new Car("Ford", 2015, "Red", 40, 10, 15);
+        Car ford = new Car("Ford", 2015, "Red", 40, 10, 15, 80, 65);
         ford.showData();
         
         
         
-        Car volkswagen = new Car("Volkswagen Passat", 2014, "Grey", 85, 6, 20);
+        Car volkswagen = new Car("Volkswagen Passat", 2014, "Grey", 85, 6, 20, 100, 87);
         volkswagen.showData();
         
+        
+        Car seat = new Car("Toledo", 2010, "Grey", 75, 6, 28, 200, 55);
         
     }
     
