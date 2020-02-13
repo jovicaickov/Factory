@@ -18,6 +18,8 @@ public class Car {
     private int currentMileage;
     private int distanceMileage;
     private int distanceTraveled;
+    private int passengers;
+    private int maxSeats;
     
     
     
@@ -29,6 +31,8 @@ public class Car {
         this.currentFuel = 0;
         this.consumption = 0;
         this.currentMileage = 0;
+        this.passengers = 1;
+        
     }
     
     public Car (String customModel, int customBuildYear, String customColor, int customMaxFuel) {
@@ -117,7 +121,7 @@ public class Car {
     public void setDistanceMileage (int customDistanceMileage) {
         this.distanceMileage = customDistanceMileage;
     }
-    
+
     
     public void showData () {
         System.out.println("Model: " + this.getModel());
@@ -132,14 +136,58 @@ public class Car {
         System.out.println();
     }
         
-    public void travel(int distanceTraveled) {
+    public void travel(int distance) {
+        if (this.getCurrentFuel() > (distance * this.getConsumption()) / 100)    {
+            this.currentMileage = this.getCurrentMileage() + distance;
+            this.currentFuel = this.getCurrentFuel() - (distance * this.getConsumption()) / 100;
+            System.out.println("Uspesno ste presli: " + distance + "kilometara.");
+        } else {
+            System.out.println("Nema dovoljno goriva za put od: " + distance);
+        }
+    }
             
+    public void fuelUp(int refill) {
+        int emptySpace = this.getMaxFuel() - this.getCurrentFuel();
         
-//        4. kolicina goriva da se smanji za kolicinu potrosenog
-//        5. kilometraza da se uveca
-
-//        novi atribut za stanje motora, da li je automobil ukljucen ili ne
+        if (refill < emptySpace)    {
+            this.currentFuel = this.getCurrentFuel() + refill;
+            System.out.println("Uspesno ste sipali: " + refill + ". Novo stanje je: " + this.getCurrentFuel());
+        } else {
+            this.currentFuel = this.getMaxFuel();
+            System.out.println("Rezervoar je pun. Sipali ste: " + emptySpace);
+        }
     }
 
+    public void getIn () {
+        int emptySeats = this.maxSeats - this.passengers;
+        
+        if (this.maxSeats >= this.passengers) {
+            emptySeats = this.passengers + 1;
+            System.out.println("Uslo je: " + emptySeats + " osoba.");
+        } else {
+            System.out.println("Automobil je pun.");
+        }
+    }
     
+    public void getIn (int numberOfPeople) {
+        int emptySeats = this.maxSeats - this.passengers;
+        
+        if (this.maxSeats >= this.passengers) {
+            emptySeats = this.passengers + numberOfPeople;
+            System.out.println("Uslo je: " + emptySeats + " osoba.");
+        } else {
+            System.out.println("Automobil je pun.");
+        }
+    }
+    
+    public void getOut () {
+        
+    }
+    
+    public void getOut (int numberOfPeople) {
+        
+    }
 }
+
+        
+
