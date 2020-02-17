@@ -33,17 +33,23 @@ public class Main {
         
         
         Car volkswagen = new Car("Volkswagen Passat", 2014, "Grey", 85, 6, 20, 100, 87);
-        volkswagen.showData();
-        volkswagen.travel(20);
-        volkswagen.showData();
-        volkswagen.travel(500);
-        volkswagen.showData();
-        volkswagen.fuelUp(20);
-        volkswagen.showData();
-        volkswagen.getIn(8);
+        volkswagen.setPassengers(1);
         volkswagen.showData();
         
+        volkswagen.getIn(2);
+        volkswagen.showData();
         
+        volkswagen.getOut();
+        volkswagen.showData();
+        
+        volkswagen.getOut();
+        volkswagen.showData();
+        
+        volkswagen.getOut();
+        volkswagen.showData();
+        
+        volkswagen.getOut(3);
+        volkswagen.showData();
     }
     
 }

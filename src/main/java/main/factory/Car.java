@@ -17,9 +17,8 @@ public class Car {
     private int consumption;
     private int currentMileage;
     private int distanceMileage;
-    private int distanceTraveled;
     private int passengers;
-    private int maxSeats;
+    private int seats = 5;
     
     
     
@@ -32,6 +31,7 @@ public class Car {
         this.consumption = 0;
         this.currentMileage = 0;
         this.passengers = 1;
+        this.seats = 5;
         
     }
     
@@ -121,6 +121,22 @@ public class Car {
     public void setDistanceMileage (int customDistanceMileage) {
         this.distanceMileage = customDistanceMileage;
     }
+    
+    public int getPassengers () {
+        return this.passengers;
+    }
+    
+    public void setPassengers (int customPassengers) {
+        this.passengers = customPassengers;
+    }
+    
+    public int getSeats () {
+        return this.seats;
+    }
+    
+    public void setSeats (int customSeats) {
+        this.seats = customSeats;
+    }
 
     
     public void showData () {
@@ -132,7 +148,8 @@ public class Car {
         System.out.println("Kapacitet rezervoara: " + this.getMaxFuel());
         System.out.println("Pocetna kilometraza: " + this.getCurrentMileage());
         System.out.println("Predjena kilometraza: " + this.getDistanceMileage());
-        System.out.println("Zavrsna kilometraza: " + this.distanceTraveled);
+        System.out.println("Zavrsna kilometraza: " + (this.getCurrentMileage() + this.getDistanceMileage()));
+        System.out.println("Broj putnika: " + this.getPassengers());
         System.out.println();
     }
         
@@ -159,33 +176,39 @@ public class Car {
     }
 
     public void getIn () {
-        int emptySeats = this.maxSeats - this.passengers;
-        
-        if (this.maxSeats >= this.passengers) {
-            emptySeats = this.passengers + 1;
-            System.out.println("Uslo je: " + emptySeats + " osoba.");
+        if (this.getPassengers() + 1 <= this.getSeats()) {
+            this.passengers = this.getPassengers() + 1;
+            System.out.println("Usla je jedna osoba.");
         } else {
             System.out.println("Automobil je pun.");
         }
     }
     
     public void getIn (int numberOfPeople) {
-        int emptySeats = this.maxSeats - this.passengers;
-        
-        if (this.maxSeats >= this.passengers) {
-            emptySeats = this.passengers + numberOfPeople;
-            System.out.println("Uslo je: " + emptySeats + " osoba.");
+        if (this.getPassengers() + numberOfPeople <= this.getSeats()) {
+            this.passengers = this.getPassengers() + numberOfPeople;
+            System.out.println("Uslo je: " + numberOfPeople + " osobe.");
         } else {
             System.out.println("Automobil je pun.");
         }
     }
     
     public void getOut () {
-        
+        if (this.getPassengers() - 1 <= this.getSeats() && this.getPassengers() > 0) {
+            this.passengers = this.getPassengers() - 1;
+            System.out.println("Izasla je jedna osoba.");
+        } else {
+            System.out.println("Automobil je prazan.");
+        }
     }
     
     public void getOut (int numberOfPeople) {
-        
+        if (this.getPassengers() - numberOfPeople <= this.getSeats() && this.getPassengers() > 0) {
+            this.passengers = this.getPassengers() - numberOfPeople;
+            System.out.println("Izaslo je: " + numberOfPeople + " osobe.");
+        } else {
+            System.out.println("Automobil je prazan.");
+        }
     }
 }
 
