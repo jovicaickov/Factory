@@ -194,7 +194,7 @@ public class Car {
     }
     
     public void getOut () {
-        if (this.getPassengers() - 1 <= this.getSeats() && this.getPassengers() > 0) {
+        if (this.getPassengers() > 0) {
             this.passengers = this.getPassengers() - 1;
             System.out.println("Izasla je jedna osoba.");
         } else {
@@ -203,7 +203,7 @@ public class Car {
     }
     
     public void getOut (int numberOfPeople) {
-        if (this.getPassengers() - numberOfPeople <= this.getSeats() && this.getPassengers() > 0) {
+        if (this.getPassengers() > 0) {
             this.passengers = this.getPassengers() - numberOfPeople;
             System.out.println("Izaslo je: " + numberOfPeople + " osobe.");
         } else {
